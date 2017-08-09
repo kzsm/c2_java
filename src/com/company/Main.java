@@ -4,6 +4,8 @@ import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 
 import javax.sound.midi.Soundbank;
 import java.lang.reflect.Array;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Main {
@@ -138,19 +140,36 @@ public class Main {
     }
 
 
-    public static void demoCommon(){
+    public static void demoCommon() {
         Random rnd = new Random();
-        List<Integer> intList2=new ArrayList<>();
+        List<Integer> intList2 = new ArrayList<>();
         //rnd.setSeed(10);
         for (int i = 0; i < 5; i++) {
-            print(1,rnd.nextFloat());
+            print(1, rnd.nextFloat());
             intList2.add(rnd.nextInt(100));
         }
-        print(5,intList2);
-        List<Integer> intList= Arrays.asList(new Integer[]{3,4,5,6});
-        print(2,intList);
+        print(5, intList2);
+        List<Integer> intList = Arrays.asList(new Integer[]{3, 4, 5, 6});
+        print(2, intList);
         Collections.shuffle(intList);
-        print(3,intList);
+        print(3, intList);
+
+        Date date = new Date();
+        print(6, date);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        print(7, dateFormat.format(date));
+
+        print(8, UUID.randomUUID());
+        print(9, Math.max(78, 22));
+
+
+    }
+
+    public static void demoClass() {
+        Animal xiaobai = new Animal("xiaobai", 4);
+        xiaobai.say();
+        Haman xiaom = new Haman("xiao ming", 15, "usa");
+        xiaom.say();
 
     }
 
@@ -164,6 +183,7 @@ public class Main {
         //demoList();
         //demoKeyValue();
         //demoException();
-        demoCommon();
+        //demoCommon();
+        demoClass();
     }
 }
